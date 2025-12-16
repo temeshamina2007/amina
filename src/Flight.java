@@ -18,7 +18,9 @@ public class Flight {
 
     }
 
-    public String getFlightNumber() {return flightNumber;}
+    public String getFlightNumber() {
+        return flightNumber;
+    }
 
     public String getFrom() {
         return from;

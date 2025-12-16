@@ -1,22 +1,21 @@
 public class Passenger {
     private String firstName;
     private String lastName;
+    private String passportNumber;
 
-    private String passpord;
-
-    public Passenger(String  firstName, String lastName, String passpord) {
+    public Passenger(String  firstName, String lastName, String passportNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.passpord = passpord;
+        this.passportNumber = passportNumber;
     }
 
     public String getFirstName() {return firstName;}
     public String getLastName() {return lastName;}
-    public String getPasspord() {return passpord;}
+    public String getPassportNumber() {return passportNumber;}
 
     public void setFirstName(String firstName) {this.firstName = firstName;}
     public void setLastName(String lastName) {this.lastName = lastName;}
-    public void setPasspord(String passpord) {this.passpord = passpord;}
+    public void setPassportNumber(String passportNumber) {this.passportNumber = this.passportNumber;}
 
     @Override
     public String toString() {
