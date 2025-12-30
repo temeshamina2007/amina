@@ -1,12 +1,60 @@
-public class Main{
+import java.util.*;
+
+public class Main {
     public static void main(String[] args) {
 
-        Passenger p1=new Passenger("Amina", "Temesh", "05794049574303");
-        Flight f1=new Flight("950858858", "Astana", "Almaty", "21:00", "23:00", 40, 0);
-        Reservation r1=new Reservation("2094694", p1, f1, 50000.00);
-        System.out.println(p1);
-        System.out.println(f1);
-        System.out.println(r1);
+        Scanner scanner = new Scanner(System.in);
 
+        List<Flight> flights = new ArrayList<>();
+        List<Passenger> passengers = new ArrayList<>();
+        List<Reservation> reservations = new ArrayList<>();
+
+        flights.add(new Flight("FL001", "Astana", "Almaty", "10:00", "12:00", 50));
+        flights.add(new Flight("FL002", "Astana", "Dubai", "14:00", "20:00", 100));
+        flights.add(new Flight("FL003", "Almaty", "Istanbul", "09:00", "15:00", 80));
+
+        System.out.println("Enter passenger first name:");
+        String firstName = scanner.nextLine();
+
+        System.out.println("Enter passenger last name:");
+        String lastName = scanner.nextLine();
+
+        System.out.println("Enter passport number:");
+        String passport = scanner.nextLine();
+
+        Passenger passenger = new Passenger(firstName, lastName, passport);
+        passengers.add(passenger);
+
+        System.out.println("Enter destination city:");
+        String destination = scanner.nextLine();
+
+        List<Flight> filteredFlights = new ArrayList<>();
+        for (Flight f : flights) {
+            if (f.getTo().equalsIgnoreCase(destination)) {
+                filteredFlights.add(f);
+            }
+        }
+
+        if (filteredFlights.isEmpty()) {
+            System.out.println("No flights found");
+            return;
+        }
+
+        filteredFlights.sort(Comparator.comparing(Flight::getFlightNumber));
+
+        Flight selectedFlight = filteredFlights.get(0);
+        selectedFlight.bookOneSeat();
+
+        Reservation reservation = new Reservation(
+                UUID.randomUUID().toString(),
+                passenger,
+                selectedFlight,
+                50000
+        );
+
+        reservations.add(reservation);
+
+        System.out.println("Reservation created:");
+        System.out.println(reservation);
     }
 }
