@@ -1,6 +1,7 @@
 import java.util.Objects;
 
 public class Passenger extends Person {
+
     private String passportNumber;
 
     public Passenger(String firstName, String lastName, String passportNumber) {
@@ -8,8 +9,13 @@ public class Passenger extends Person {
         this.passportNumber = passportNumber;
     }
 
-    public String getPassportNumber() { return passportNumber; }
-    public void setPassportNumber(String passportNumber) { this.passportNumber = passportNumber; }
+    public String getPassportNumber() {
+        return passportNumber;
+    }
+
+    public void setPassportNumber(String passportNumber) {
+        this.passportNumber = passportNumber;
+    }
 
     @Override
     public String getRole() {
@@ -18,9 +24,11 @@ public class Passenger extends Person {
 
     @Override
     public String toString() {
-        return "Passenger{firstName='" + getFirstName() +
-                "', lastName='" + getLastName() +
-                "', passport='" + passportNumber + "'}";
+        return "Passenger{" +
+                "firstName='" + getFirstName() + '\'' +
+                ", lastName='" + getLastName() + '\'' +
+                ", passportNumber='" + passportNumber + '\'' +
+                '}';
     }
 
     @Override
@@ -28,7 +36,7 @@ public class Passenger extends Person {
         if (this == o) return true;
         if (!(o instanceof Passenger)) return false;
         Passenger that = (Passenger) o;
-        return passportNumber.equals(that.passportNumber);
+        return Objects.equals(passportNumber, that.passportNumber);
     }
 
     @Override

@@ -1,6 +1,7 @@
 import java.util.Objects;
 
 public class Flight {
+
     private String flightNumber;
     private String from;
     private String to;
@@ -20,10 +21,37 @@ public class Flight {
         this.bookedSeats = 0;
     }
 
-    public String getFlightNumber() { return flightNumber; }
-    public String getFrom() { return from; }
-    public String getTo() { return to; }
-    public int getAvailable() { return allSeats - bookedSeats; }
+    public String getFlightNumber() {
+        return flightNumber;
+    }
+
+    public String getFrom() {
+        return from;
+    }
+
+    public String getTo() {
+        return to;
+    }
+
+    public String getFromTime() {
+        return fromTime;
+    }
+
+    public String getToTime() {
+        return toTime;
+    }
+
+    public int getAllSeats() {
+        return allSeats;
+    }
+
+    public int getBookedSeats() {
+        return bookedSeats;
+    }
+
+    public int getAvailable() {
+        return allSeats - bookedSeats;
+    }
 
     public boolean bookOneSeat() {
         if (getAvailable() > 0) {
@@ -38,6 +66,8 @@ public class Flight {
         return "Flight{number='" + flightNumber +
                 "', from='" + from +
                 "', to='" + to +
+                "', fromTime='" + fromTime +
+                "', toTime='" + toTime +
                 "', availableSeats=" + getAvailable() + "}";
     }
 
